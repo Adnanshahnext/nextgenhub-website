@@ -51,7 +51,7 @@ const Header = () => {
     >
       <div className="container mx-auto px-4 md:px-6 flex justify-between items-center">
         <Link to="/" className="flex items-center gap-2">
-          <img src="/logo.png" alt="Next Gen Hub" className="h-40" />
+          <img src="/logo.png" alt="Next Gen Hub" className="h-12" />
         </Link>
 
         {/* Desktop Navigation */}
