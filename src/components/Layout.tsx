@@ -31,7 +31,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
   };
 
   return (
-    <div className="flex flex-col min-h-screen bg-gradient-to-b from-slate-950 to-slate-900 text-white">
+    <div className="flex flex-col min-h-screen bg-gradient-to-b from-slate-950 text-white">
       <Header />
       <main className="flex-grow">
         {children}

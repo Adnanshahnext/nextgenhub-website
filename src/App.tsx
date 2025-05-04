@@ -7,6 +7,7 @@ import Services from './pages/Services';
 import Portfolio from './pages/Portfolio';
 import Contact from './pages/Contact';
 import Blog from './pages/Blog';
+import BlogPostPage from './pages/BlogPostPage'; // Import the new BlogPostPage
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           <Route path="/services" element={<Services />} />
           <Route path="/portfolio" element={<Portfolio />} />
           <Route path="/blog" element={<Blog />} />
+          <Route path="/blog/:slug" element={<BlogPostPage />} /> {/* Dynamic route for individual blog post */}
           <Route path="/contact" element={<Contact />} />
         </Routes>
       </Layout>

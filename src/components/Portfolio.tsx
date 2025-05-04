@@ -6,6 +6,7 @@ interface Project {
   title: string;
   category: string;
   image: string;
+  video?: string;
   description: string;
   client: string;
   clientLogo: string;
@@ -28,21 +29,36 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) => {
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80">
       <div className="relative w-full max-w-4xl max-h-[90vh] overflow-y-auto bg-slate-900 rounded-2xl shadow-xl">
+        
+        {/* Close Button */}
         <button
           onClick={onClose}
-          className="absolute top-4 right-4 p-2 text-slate-400 hover:text-white transition-colors duration-300"
+          className="absolute top-4 right-4 p-2 text-slate-400 hover:text-white transition-colors duration-300 z-10"
         >
           <X size={24} />
         </button>
-        
-        <div className="aspect-video">
-          <img 
-            src={project.image} 
-            alt={project.title}
-            className="w-full h-full object-cover"
-          />
+
+        {/* Video or Image Section */}
+        <div className="aspect-video relative">
+          {project.video ? (
+            <video
+              src={project.video}
+              autoPlay
+              loop
+              muted
+              playsInline
+              className="w-full h-full object-cover"
+            />
+          ) : (
+            <img 
+              src={project.image} 
+              alt={project.title}
+              className="w-full h-full object-cover"
+            />
+          )}
         </div>
-        
+
+        {/* Content Section */}
         <div className="p-8">
           <div className="flex items-center gap-4 mb-6">
             <img 
@@ -111,6 +127,7 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) => {
   );
 };
 
+
 const Portfolio = () => {
   const [activeCategory, setActiveCategory] = useState('All');
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
@@ -124,7 +141,8 @@ const Portfolio = () => {
       category: "Web Development",
       client: "TechCorp Solutions",
       clientLogo: "https://images.pexels.com/photos/12873798/pexels-photo-12873798.jpeg",
-      image: "https://images.pexels.com/photos/1779487/pexels-photo-1779487.jpeg",
+      image: "https://cdn.dribbble.com/userupload/17784836/file/original-4149ee40a8b88c08dda2e050889657b6.jpg?format=webp&resize=400x300&vertical=center",
+      video: "https://cdn.dribbble.com/userupload/17351661/file/original-15f093aeaaa8db2dba3fc53bf15e0c67.mp4",
       description: "A comprehensive analytics dashboard providing real-time insights and data visualization for enterprise clients.",
       technologies: ["React", "TypeScript", "Node.js", "D3.js", "WebSocket", "MongoDB"],
       features: [
@@ -146,7 +164,8 @@ const Portfolio = () => {
       category: "Mobile Apps",
       client: "HealthTech Innovations",
       clientLogo: "https://images.pexels.com/photos/2559747/pexels-photo-2559747.jpeg",
-      image: "https://images.pexels.com/photos/4482900/pexels-photo-4482900.jpeg",
+      image: "https://cdn.dribbble.com/userupload/17017322/file/original-733ac4e2a0e22818efd4e77d723de475.png?resize=1504x1128&vertical=center",
+      video: "https://cdn.dribbble.com/userupload/7996989/file/original-3998638ef9bb72562f3195c28dc57314.mp4",
       description: "A comprehensive health and fitness tracking application with personalized workout plans and nutrition guidance.",
       technologies: ["React Native", "Redux", "Node.js", "MongoDB", "Firebase"],
       features: [
@@ -163,7 +182,7 @@ const Portfolio = () => {
       category: "E-Commerce",
       client: "LuxeRetail Group",
       clientLogo: "https://images.pexels.com/photos/14936128/pexels-photo-14936128.jpeg",
-      image: "https://images.pexels.com/photos/6214476/pexels-photo-6214476.jpeg",
+      image: "https://static.wixstatic.com/media/a77aa0_1de27145b1a4428eb11ceae6e31b54ab~mv2.jpg/v1/fill/w_980,h_560,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/a77aa0_1de27145b1a4428eb11ceae6e31b54ab~mv2.jpg", 
       description: "A premium e-commerce platform with advanced product management and secure payment processing.",
       technologies: ["Next.js", "Stripe", "PostgreSQL", "Redis", "AWS"],
       features: [
@@ -180,7 +199,7 @@ const Portfolio = () => {
       category: "Business Solutions",
       client: "Global Logistics Co.",
       clientLogo: "https://images.pexels.com/photos/5806549/pexels-photo-5806549.jpeg",
-      image: "https://images.pexels.com/photos/7180752/pexels-photo-7180752.jpeg",
+      image: "https://mir-s3-cdn-cf.behance.net/projects/404/2a8b77205111609.Y3JvcCwyMzAxLDE4MDAsNTEsMA.jpg",
       description: "A comprehensive ERP system streamlining operations and improving efficiency across departments.",
       technologies: ["Angular", "Java Spring", "Oracle", "Docker", "Kubernetes"],
       features: [

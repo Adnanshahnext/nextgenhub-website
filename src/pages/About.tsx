@@ -1,13 +1,13 @@
-import React from 'react';
+import React from 'react'; 
 import { ArrowRight, Users, Target, Rocket, Award } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const About = () => {
   const stats = [
-    { label: 'Years Experience', value: '10+' },
+    { label: 'Years Experience', value: '6+' },
     { label: 'Projects Completed', value: '500+' },
-    { label: 'Team Members', value: '50+' },
-    { label: 'Client Satisfaction', value: '98%' }
+    { label: 'Team Members', value: '20+' },
+    { label: 'Client Satisfaction', value: '100%' }
   ];
 
   const values = [
@@ -96,35 +96,25 @@ const About = () => {
           </div>
         </div>
 
-        {/* Team Section */}
+        {/* Team Section without images */}
         <div>
           <h2 className="text-3xl font-bold text-center mb-12">Our Leadership Team</h2>
           <div className="grid md:grid-cols-3 gap-8">
             {[
               {
-                name: 'Sarah Johnson',
+                name: 'Adnan Shah',
                 role: 'CEO & Founder',
-                image: 'https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg'
               },
               {
-                name: 'Michael Chen',
+                name: 'Faizan Baksh',
                 role: 'CTO',
-                image: 'https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg'
               },
               {
-                name: 'Emily Rodriguez',
+                name: 'Arshad Shaikh',
                 role: 'Head of Design',
-                image: 'https://images.pexels.com/photos/415829/pexels-photo-415829.jpeg'
               }
             ].map((member, index) => (
               <div key={index} className="bg-slate-800/50 rounded-lg overflow-hidden">
-                <div className="aspect-square">
-                  <img 
-                    src={member.image} 
-                    alt={member.name} 
-                    className="w-full h-full object-cover"
-                  />
-                </div>
                 <div className="p-6">
                   <h3 className="text-xl font-semibold mb-1">{member.name}</h3>
                   <p className="text-slate-300">{member.role}</p>

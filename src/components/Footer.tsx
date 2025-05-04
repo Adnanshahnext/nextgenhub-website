@@ -9,7 +9,7 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
           <div>
             <Link to="/" className="block mb-6">
-              <img src="/logo.png" alt="Next Gen Hub" className="h-10" />
+              <img src="/logo.png" alt="Next Gen Hub" className="h-40" />
             </Link>
             <p className="text-slate-400 mb-6">
               We build cutting-edge websites, powerful applications, and innovative business solutions that help companies thrive in the digital age.
@@ -21,7 +21,7 @@ const Footer = () => {
               <a href="#" className="text-slate-400 hover:text-blue-500 transition-colors duration-300">
                 <Twitter size={20} />
               </a>
-              <a href="#" className="text-slate-400 hover:text-blue-500 transition-colors duration-300">
+              <a href="https://www.instagram.com/next.generation.hub/?__pwa=1" className="text-slate-400 hover:text-blue-500 transition-colors duration-300">
                 <Instagram size={20} />
               </a>
               <a href="#" className="text-slate-400 hover:text-blue-500 transition-colors duration-300">
@@ -73,15 +73,15 @@ const Footer = () => {
                 </a>
               </li>
               <li className="text-slate-400">
-                123 Innovation Drive
+                Paithan Gate
                 <br />
-                Tech Park, San Francisco
+                Aurangabad, Maharashtra
                 <br />
-                CA 94103
+                India
               </li>
               <li>
-                <a href="tel:+15551234567" className="text-slate-400 hover:text-white transition-colors duration-300">
-                  +1 (555) 123-4567
+                <a href="mob: 91+ 8530938774" className="text-slate-400 hover:text-white transition-colors duration-300">
+                  +91 8530938774
                 </a>
               </li>
             </ul>

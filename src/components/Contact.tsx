@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Mail, Phone, MapPin, Send, CheckCircle2 } from 'lucide-react';
+import emailjs from '@emailjs/browser';
 
 interface FormState {
   name: string;
@@ -56,14 +57,19 @@ const Contact = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
-    // Simulate form submission
-    setTimeout(() => {
-      console.log('Form submitted:', formData);
+  
+    emailjs.send('service_872kfp3', 'template_6iwa5i3', {
+      from_name: formData.name,
+      from_email: formData.email,
+      phone: formData.phone,
+      subject: formData.subject,
+      message: formData.message
+    }, 'I6DzHJIN7YnW2cC4E')
+    .then((result) => {
+      console.log('Email sent successfully:', result.text);
       setIsSubmitting(false);
       setIsSubmitted(true);
-      
-      // Reset form after showing success message
+  
       setTimeout(() => {
         setFormData({
           name: '',
@@ -74,8 +80,13 @@ const Contact = () => {
         });
         setIsSubmitted(false);
       }, 3000);
-    }, 1500);
+    }, (error) => {
+      console.error('Email sending failed:', error.text);
+      setIsSubmitting(false);
+      alert('Failed to send message. Please try again.');
+    });
   };
+  
 
   return (
     <section id="contact" className="py-24 bg-slate-950 relative overflow-hidden">
@@ -226,19 +237,19 @@ const Contact = () => {
                 <ContactInfo
                   icon={<Mail size={20} />}
                   title="Email Us"
-                  content="info@nextgenhub.com"
-                  link="mailto:info@nextgenhub.com"
+                  content="next.gen.hub9@gmail.com"
+                  link="mailto:next.gen.hub9@gmail.com"
                 />
                 <ContactInfo
                   icon={<Phone size={20} />}
                   title="Call Us"
-                  content="+1 (555) 123-4567"
-                  link="tel:+15551234567"
+                  content="+91 8530938774"
+                  link="mob: 91+ 8530938774"
                 />
                 <ContactInfo
                   icon={<MapPin size={20} />}
                   title="Visit Us"
-                  content="123 Innovation Drive, Tech Park, San Francisco, CA 94103"
+                  content="Paithan Gate Aurangabad India"
                 />
               </div>
             </div>
